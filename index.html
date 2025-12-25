@@ -14,14 +14,13 @@
         <p class="degree">Bachelor’s Degree</p>
 
         <nav>
-            <ul>
-                <li>Education</li>
-                <li>Skills</li>
-                <li>Projects</li>
-                <li>Certifications</li>
-                <li>Resume</li>
-            </ul>
-        </nav>
+    <ul>
+        <li onclick="showSection('about')">About Me</li>
+        <li onclick="showSection('education')">Education</li>
+        <li onclick="showSection('skills')">Skills</li>
+        <li onclick="showSection('projects')">Projects</li>
+    </ul>
+</nav>
 
         <div class="links">
             <a href="#" target="_blank">GitHub</a>
@@ -31,34 +30,52 @@
 
     <!-- Right Content -->
     <main class="content">
-        <section>
-            <h2>About Me</h2>
-            <p>
-                 I am a motivated undergraduate student currently pursuing my degree in Computer Science with Data Analytics. 
-                I am eager to contribute my growing knowledge to dynamic teams and expand my experience in the technology field.
-            </p>
-        </section>
+    <!-- About Me -->
+    <section id="about" class="active">
+        <h2>About Me</h2>
+        <p>
+            I am a motivated undergraduate student currently pursuing my degree in Computer Science with Data Analytics. 
+            I am eager to contribute my growing knowledge to dynamic teams and expand my experience in the technology field.
+        </p>
+    </section>
 
-        <section>
-            <h2>Education</h2>
-            <p>Bachelor’s Degree – Your College Name</p>
-        </section>
+    <!-- Education -->
+    <section id="education">
+        <h2>Education</h2>
+        <p>Undergraduate Degree in [Your Major/Field] – [Your College Name], [Expected Graduation Year]</p>
+    </section>
 
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Git & GitHub</li>
-            </ul>
-        </section>
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Honours Diploma in Computer Application(HDCA)</li>
+            <li>Git & GitHub</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Projects</h2>
-            <p>Projects will be added soon.</p>
-        </section>
-    </main>
+    <!-- Projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Projects will be added soon.</p>
+    </section>
+</main>
 </div>
+    <script>
+function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('main section').forEach(section => {
+        section.classList.remove('active');
+    });
+    // Show selected section
+    document.getElementById(sectionId).classList.add('active');
+    // Highlight active sidebar item
+    document.querySelectorAll('.sidebar nav ul li').forEach(li => {
+        li.classList.remove('active');
+    });
+    document.querySelector('.sidebar nav ul li[onclick="showSection(\'' + sectionId + '\')"]').classList.add('active');
+}
+</script>
 
 </body>
 </html>
